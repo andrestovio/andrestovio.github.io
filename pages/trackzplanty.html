@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TrackzPlanty Andres Tovio</title>
+  <link rel="stylesheet" href="../css/style.css" />
+    <style>
+    .project-hero { background: rgba(0,0,0,0.04); border-bottom: 1px solid var(--color-border); padding: 4rem 2rem; }
+    .project-hero-inner { max-width: var(--max-width); margin: 0 auto; text-align: center; }
+    .project-hero h1 { font-size: clamp(2rem,4vw,3rem); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .project-hero p { font-size: 1.05rem; color: var(--color-muted); max-width: 600px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .project-meta { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2rem; }
+    .meta-item strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-muted); margin-bottom: 0.25rem; }
+    .meta-item span { font-size: 0.9rem; font-weight: 500; }
+    .project-body { max-width: 720px; margin: 0 auto; padding: 4rem 2rem; }
+    .project-body h2 { font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 0.75rem; letter-spacing: -0.01em; }
+    .project-body p { color: var(--color-muted); line-height: 1.75; margin-bottom: 1rem; font-size: 0.95rem; }
+    .project-body ul { list-style: disc; padding-left: 1.25rem; color: var(--color-muted); font-size: 0.95rem; line-height: 1.75; }
+    .project-body ul li { margin-bottom: 0.4rem; }
+    .project-body figure { margin: 1.75rem 0; }
+    .project-body figure img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--color-border); background: #fff; }
+    .project-body .fig-narrow { max-width: 480px; margin-left: auto; margin-right: auto; }
+    .fig-stack { display: grid; gap: 0.75rem; margin: 1.75rem 0; }
+    /* Phone screens two per row; an odd last screen sits centered on its own row */
+    .screen-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; max-width: 420px; margin: 1.75rem auto; }
+    .project-body .screen-row figure { margin: 0; flex: 0 0 calc(50% - 0.5rem); }
+    .project-body .fig-stack figure { margin: 0; }
+    .img-placeholder { width: 100%; aspect-ratio: 16/9; background: rgba(0,0,0,0.04); border: 2px dashed var(--color-border); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--color-muted); font-size: 0.85rem; margin: 2rem 0; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Andres Tovio</a>
+      <button class="nav-toggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li>
+          <a href="#">Projects</a>
+          <ul class="dropdown">
+            <li><a href="ai-code-academy.html">AI Code Academy</a></li>
+            <li><a href="study-bunnies.html">Study Bunnies</a></li>
+            <li><a href="trackzplanty.html" class="active">TrackzPlanty</a></li>
+            <li><a href="clip-coo.html">Clip-Coo</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="project-hero">
+    <div class="project-hero-inner">
+      <p class="section-label">Case Study</p>
+      <h1>TrackzPlanty</h1>
+      <div class="project-meta">
+        <div class="meta-item"><strong>Role</strong><span>UI/UX Designer</span></div>
+        <div class="meta-item"><strong>Tools</strong><span>Figma</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-body">
+    <h2>Overview</h2>
+    <p>This project targeted plant growers who may or may not have a plan for growing and maintaining healthy plants. TrackzPlanty was created to allow plant owners to access resources for plant-growing guidance. It includes features such as water schedule, journal, and weather insights.
+    </p>
+
+    <h2>Problem Statement</h2>
+    <p>Some plant owners may have difficulties maintaining the health of their plants, and some may not have a strategic plan to take care of them. This causes frustration because they spent money and time on plants they expected to keep healthy, but did not know how. This can turn into never purchasing a plant again due to fear of killing another plant.
+</p>
+
+    <h2>High Level Vision</h2>
+    <p>TrackzPlanty is an educational and tracking app. Users will have the option to learn about the plant they would like to grow and take care for. The world will become a better place when people are more educated on how to take care of nature and benefit all life on Earth.
+</p>
+
+
+    <h2>Personas</h2>
+    <div class="fig-stack">
+      <figure>
+        <img src="../assets/trackzplanty/persona-josselyn.png" alt="Persona: Josselyn, 25, electrical engineer from Belleville, NJ who wants to develop her gardening skills but struggles with time management" />
+      </figure>
+      <figure>
+        <img src="../assets/trackzplanty/persona-christian.png" alt="Persona: Christian, 47, Air Force financial management technician from Bloomsburg, PA who forgets to water his plants and needs reminders" />
+      </figure>
+    </div>
+
+    <h2>Rapid Ideation</h2>
+    <figure>
+      <img src="../assets/trackzplanty/rapid-ideation.png" alt="Rapid ideation board: sticky notes of feature ideas like watering schedules, reminders, and plant growth tracking, alongside reference UI screenshots" />
+    </figure>
+
+      <p>With the personas created, we then did rapid ideation and brainstormed the key features of our app. We divided the work and noted that whatever feature is in purple should be a higher priority in comparison of the green, which should be less of a priority but would be nice to include. This approach helped us make intentional design decisions, balance scope, and avoid feature overload while still leaving room for future expansion. By the end of this phase, we had a clear feature hierarchy and a shared understanding of what needed to be designed first versus what could be iterated on later.
+      </p>
+
+      <h2>Competitive Analysis</h2>
+      <p>A competitor is Planta. This app focuses on a daily routine for the growth of plants. While TrackzPlanty has this feature, it is important to take notes on certain procedures a user does to keep their plants healthy. 
+</p>
+
+<h2>Moodboard</h2>
+    <figure>
+      <img src="../assets/trackzplanty/moodboard.png" alt="Color moodboard: clusters of greens, mint, lavender, soft pink, and butter yellow swatches on a dark background" />
+    </figure>
+
+<p>The team focused on targeting colors that resemble plants and nature. It mostly has variations of green, as we thought that it is main nature color.
+</p>
+
+<h2>Low-Fidelity Wireframes</h2>
+    <figure class="fig-narrow">
+      <img src="../assets/trackzplanty/lofi-wireframes.png" alt="Hand-drawn low-fidelity wireframes on grid paper: home screen with weather and tracking, feature list, and plant detail cards" />
+    </figure>
+
+    <p>We started by creating basic sketches of low-fidelity wireframes in an attempt to determine the overall user experience of the mobile application and the position of the key features that we intended to incorporate into the final product. The sketches were rich in annotations that highlighted different aspects of the design of the mobile application.
+</p>
+    <div class="screen-row">
+      <figure><img src="../assets/trackzplanty/lofi-login.png" alt="Low-fidelity wireframe: login screen with email and password fields" /></figure>
+      <figure><img src="../assets/trackzplanty/lofi-todo.png" alt="Low-fidelity wireframe: daily to-do list screen" /></figure>
+      <figure><img src="../assets/trackzplanty/lofi-plant-list.png" alt="Low-fidelity wireframe: filterable plant list with name, difficulty, lifespan, and size" /></figure>
+      <figure><img src="../assets/trackzplanty/lofi-plant-detail.png" alt="Low-fidelity wireframe: plant detail screen with photo, timeline, and plant information" /></figure>
+      <figure><img src="../assets/trackzplanty/lofi-settings.png" alt="Low-fidelity wireframe: settings menu with profile, security, support, and log out options" /></figure>
+    </div>
+
+      <p>We then converted the low-fidelity wireframes into digital wifremares. We were able to see consistency and hierarchy much better in a more flexible yet realistic setting by finishing this phase. We were able to establish the foundation for high-fidelity by analyzing each feature of the digital visuals.
+</p>
+
+<h2>Link to Figma Live Mockup</h2>
+<h3><a href="https://www.figma.com/proto/ZA1ZEGZriyzqlVwqiKLXGW/TrackzPlanty-Project?page-id=0%3A1&amp;node-id=114-756&amp;t=I8Walx5NxAz6pCGx-1&amp;scaling=scale-down&amp;content-scaling=fixed&amp;starting-point-node-id=114%3A366&amp;show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">Click Here</a></h3>
+
+<h2>Reflection</h2>
+<p>My participation in this project allowed me to develop my design thinking and also to learn to solve problems through the users' eyes. During the whole process, NJIT UX design professors and UX design experts gave our team so much insightful feedback that it not only challenged our assumptions but also allowed us to make more informed decisions. I was able to improve my skills in the communication of design concepts, taking criticism, and working with others during my one of my first UI/UX design project. The success of the project as well as the personal development I have achieved through working on this project (for example, having completed many parts of it from beginning to end) are my two main takeaway points. The experience gained from this project will have a positive effect on my future work in UI/UX design as I continue to apply all I have learned through this project regarding constructive collaboration and design principles.</p>
+
+<p>This was my first design hackathon I've participated in. What I could've done differently was to communicate in advance with my teammates, as I didn't have much experience working on UI/UX Design projects. Also, I should have asked for advice in advance from a NJIT professor or professionals, so I could have had a different approach. Either way, I am satisfied with the outcome, and I know that there is room for improvement, such as typography in the UI aspect and conducting more research, such as interviews in the UX aspect.</p>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); display:flex; gap:1rem;">
+      <a href="clip-coo.html" class="btn btn-outline">Next Project</a>
+      <a href="../index.html" class="btn btn-primary">Back Home</a>
+    </div>
+  </div>
+
+
+
+  <footer><p>&copy; 2026 Andres Tovio. All rights reserved.</p></footer>
+  <script src="../js/main.js"></script>
+</body>
+</html>
+

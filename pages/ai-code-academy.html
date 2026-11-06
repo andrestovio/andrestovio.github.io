@@ -1,0 +1,482 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Code Academy</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    .project-hero {
+      background: rgba(0,0,0,0.04);
+      border-bottom: 1px solid var(--color-border);
+      padding: 4rem 2rem;
+    }
+    .project-hero-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      text-align: center;
+    }
+    .project-hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    .project-hero p {
+      font-size: 1.05rem;
+      color: var(--color-muted);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .project-meta .meta-item { text-align: center; }
+    .meta-item strong {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-muted);
+      margin-bottom: 0.25rem;
+    }
+    .meta-item span {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    .project-body {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+    .project-body h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin: 3rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+    .project-body h2:first-child { margin-top: 0; }
+    .project-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 0 0 0.35rem;
+    }
+    .project-body p {
+      color: var(--color-muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .project-body ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+      color: var(--color-muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+    .project-body ul li { margin-bottom: 0.4rem; }
+
+    /* Images */
+    .project-body figure { margin: 1.75rem 0; }
+    .project-body figure img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 1px solid var(--color-border);
+      background: #fff;
+    }
+    .project-body figcaption {
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: var(--color-muted);
+      text-align: center;
+    }
+    .project-body .fig-narrow { max-width: 560px; margin-left: auto; margin-right: auto; }
+    .fig-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
+      align-items: start;
+      margin: 1.75rem 0;
+    }
+    .fig-row figure { margin: 0; }
+    /* Portrait photo + landscape certificate; column ratio keeps their heights equal */
+    .fig-pair {
+      display: grid;
+      grid-template-columns: 75fr 129fr;
+      gap: 1.25rem;
+      align-items: center;
+      margin: 1.75rem 0;
+    }
+    .project-body .fig-pair figure { margin: 0; }
+    @media (max-width: 640px) {
+      .fig-pair { grid-template-columns: 1fr; }
+    }
+    .brand-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+      justify-content: center;
+      margin: 1.75rem 0;
+    }
+    .brand-row img {
+      width: 140px;
+      height: 140px;
+      object-fit: contain;
+      border: none;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    /* Stakeholders */
+    .stakeholder-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      max-width: 720px;
+      margin: 1.25rem auto 0;
+    }
+    .stakeholder-card {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid var(--color-border);
+      border-radius: 4px;
+      padding: 1.75rem;
+      background: rgba(255,255,255,0.4);
+    }
+    .stakeholder-card.centered { text-align: center; }
+    .stakeholder-card p { margin: 0; font-size: 0.85rem; }
+
+    /* Usability tasks */
+    .task {
+      border-left: 3px solid var(--color-text);
+      padding: 0.25rem 0 0.25rem 1.1rem;
+      margin: 1.75rem 0;
+    }
+    .task h3 { margin-bottom: 0.5rem; }
+    .task p { margin-bottom: 0.6rem; }
+    .task .label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text);
+    }
+
+    .note {
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="../index.html" class="nav-logo">Andres Tovio</a>
+      <button class="nav-toggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li>
+          <a href="#">Projects</a>
+          <ul class="dropdown">
+            <li><a href="ai-code-academy.html" class="active">AI Code Academy</a></li>
+            <li><a href="study-bunnies.html">Study Bunnies</a></li>
+            <li><a href="trackzplanty.html">TrackzPlanty</a></li>
+            <li><a href="clip-coo.html">Clip-Coo</a></li>
+          </ul>
+        </li>
+        <li><a href="about.html">About Me</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="project-hero">
+    <div class="project-hero-inner">
+      <p class="section-label">Case Study</p>
+      <h1>AI Code Academy</h1>
+      <div class="project-meta">
+        <div class="meta-item">
+          <strong>Role</strong>
+          <span>Lead UX/UI Designer</span>
+        </div>
+        <div class="meta-item">
+          <strong>Timeline</strong>
+          <span>September – December 2025</span>
+        </div>
+        <div class="meta-item">
+          <strong>Tools</strong>
+          <span>Figma, Adobe Illustrator, Google Forms</span>
+        </div>
+        <div class="meta-item">
+          <strong>Collaboration</strong>
+          <span>Chris DeFeo (Backend Developer), Ricardo Rodriguez (Project Manager and Frontend Developer)</span>
+        </div>
+        <div class="meta-item">
+          <strong>Sponsors</strong>
+          <span>Jerry Xiao (Founder), Ashley Moreiro (EdTech Engineer Head Coach), Karla Vasquez (Business Dev Manager)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="project-body">
+
+    <h2>Overview</h2>
+    <p>
+      My team created a comprehensive learning platform for their American Computer
+      Science League (ACSL) competition students. This league is responsible for
+      organizing and hosting programming and computer science contests for K-12
+      schools, organizations, and local schools.
+    </p>
+    <p>
+      The learning site features a knowledge graph of ACSL topics, where we focused
+      on elementary division students to enable them to take AI-enhanced practice
+      exams to test their skills.
+    </p>
+    <p>
+      The website features a chatbot microservice where students can ask detailed
+      questions related to the ACSL material. Students will receive appropriate
+      human-like feedback for their skill level.
+    </p>
+
+    <h2>Problem Statement</h2>
+    <p>
+      To prepare for competitive computer science leagues, students often learn in
+      a context where their learning process remains opaque to them; there are no
+      clear indicators of which concepts are known, which are weak, or which
+      concepts relate to others at a given time. Thus, without necessary
+      adaptations, students are left practicing incorrect concepts or concepts with
+      gaps at various levels.
+    </p>
+    <p>
+      From the learning practice point of view, the fact is that very little is
+      known about the interaction between the subject matter and the students
+      outside the classroom, and therefore it is very difficult to intervene. The
+      absence of any system for the integrated tracking of progress makes the whole
+      situation very inefficient for the students, as well as the instructors.
+    </p>
+
+    <h2>High Level Vision</h2>
+    <p>
+      This project focused on building an adaptive AI Tutor Chatbot utilizing AI
+      integration in a platform for AI Code Academy to assist students in preparing
+      for the American Computer Science League. AI Code Academy provides students
+      with curriculum-aligned descriptions and adaptive practice problems, tailored
+      to their level of performance. Additionally, because there are different
+      levels of division, they decided to split the levels into Elementary
+      Division, Junior Division, and Senior and Intermediate Divisions. As
+      aforementioned, there will be a visual knowledge graph illustrating students'
+      learning progress to guide them to learning resources in areas that have
+      mastered and areas that need room for mastery.
+    </p>
+
+    <h2>Stakeholders</h2>
+    <div class="stakeholder-grid">
+      <div class="stakeholder-card">
+        <h3>AI Code Academy sponsors</h3>
+        <p>Responsible for the management of AI Code Academy.</p>
+      </div>
+      <div class="stakeholder-card">
+        <h3>New Jersey Institute of Technology capstone team</h3>
+        <p>Responsible for creating a comprehensive learning platform for their American Computer Science League (ACSL) competition students.</p>
+      </div>
+      <div class="stakeholder-card">
+        <h3>AI Code Academy coaches</h3>
+        <p>They teach study materials to students.</p>
+      </div>
+      <div class="stakeholder-card centered">
+        <h3>ACSL students</h3>
+        <p>They experience the learning aspects of the study materials and compete in the ACSL.</p>
+      </div>
+    </div>
+
+    <h2>Moodboard</h2>
+    <p>
+      This moodboard is the design color preference created by Karla Vasquez. Since
+      this was given to me and already premade, I took it into consideration for my
+      design choices.
+    </p>
+    <figure class="fig-narrow">
+      <img src="../assets/ai-code-academy/moodboard.png" alt="AI Code Academy moodboard" />
+    </figure>
+
+    <h2>Logo / Mascot / Branding</h2>
+    <div class="brand-row">
+      <img src="../assets/ai-code-academy/logo.png" alt="AI Code Academy logo" />
+      <img src="../assets/ai-code-academy/codey-avatar.png" alt="Codey, the AI Code Academy mascot avatar" />
+    </div>
+
+    <h2>User Flow</h2>
+    <figure>
+      <img src="../assets/ai-code-academy/user-flow.png" alt="AI Code Academy user flow diagram" />
+    </figure>
+
+    <h2>Figma File</h2>
+    <p class="note">
+      Disclaimer: Some parts of the Figma file will be anonymized to adhere to NDA
+      guidelines. For details on my work, reach out to me.
+    </p>
+    <!-- Add your Figma embed or link here, e.g. <a href="YOUR_FIGMA_LINK" target="_blank" rel="noopener">View the Figma file</a> -->
+
+    <h4 style="text-decoration: underline;">Ideation / High-Fidelity Design Phase</h4>
+    <p>
+      Based on the material that was given to me, such as brand identity, I need to
+      start from scratch and work in a fast-paced environment to collaborate with
+      developers and deliver a semester-long project. The design phase was divided
+      into two phases (Phase 1 and Phase 2). Phase 1 focused on brainstorming ideas
+      for each page the sponsors wanted to have.
+    </p>
+
+    <figure class="fig-narrow">
+      <img src="../assets/ai-code-academy/phase1-home.png" alt="Phase 1 Figma home page design" />
+      <figcaption><strong>Phase 1</strong> (Home Page)</figcaption>
+    </figure>
+
+    <p>
+      Based on these ideas, the sponsors had different suggestions, which I later
+      took and redefined each page based on their needs. I wanted the pages to be
+      more simplified, user-friendly, tailored to K-12 students, and pages that
+      work best for user needs. As a result, sponsors were much satisfied with the
+      outcome and implemented it into their deployed website for participants to
+      navigate and give later feedback.
+    </p>
+
+    <figure class="fig-narrow">
+      <img src="../assets/ai-code-academy/phase2-home.png" alt="Phase 2 Figma home page design" />
+      <figcaption><strong>Phase 2</strong> (Home Page)</figcaption>
+    </figure>
+
+    <h2>User Feedback</h2>
+    <p>
+      We conducted a usability test with four AI Code Academy coaches. We asked them
+      to conduct five tasks with the deployed website. Due to the NDA guidelines, we
+      summarized participants' responses rather than reporting verbatim. The tasks
+      are as follows:
+    </p>
+
+    <div class="task">
+      <h3>1. Task: Start a conversation with the AI Teacher Chatbot.</h3>
+      <p><span class="label">Feedback Question:</span><br />What was your experience like when attempting to begin a conversation with the chatbot?</p>
+      <p><span class="label">Overall summarized response:</span><br />Participants generally found the chatbot easy to start and engaging, with several noting quick and insightful responses once the topic was understood. Some users experienced a slightly slow start or felt the answers were not always helpful or relevant, indicating inconsistency in response quality. Visual design elements (color differentiation between questions and responses) were positively received and improved readability.</p>
+    </div>
+
+    <div class="task">
+      <h3>2. Task: Ask the chatbot to explain a topic (ex: "What is adding place values?").</h3>
+      <p><span class="label">Feedback Question:</span><br />Describe the clarity and helpfulness of the chatbot's response.</p>
+      <p><span class="label">Overall summarized response:</span><br />Participants were mostly satisfied with the level of explanation offered by the chatbot, especially in terms that would make it accessible to younger students. Repetition and breaking things down step by step were considered helpful. Nonetheless, some encountered answers that were too vague or irrelevant, with too many disclaimers.</p>
+    </div>
+
+    <div class="task">
+      <h3>3. Task: Pick an avatar using the available options.</h3>
+      <p><span class="label">Feedback Question:</span><br />How would you describe your experience finding the avatars?</p>
+      <p><span class="label">Overall summarized response:</span><br />Experiences were mixed. Some users successfully found and changed avatars through the profile section and found the chatbot helpful in guiding them. Others could not locate the avatar feature at all, suggesting discoverability issues. Users liked the concept of "mascots" but wanted more customization options and clearer defaults.</p>
+    </div>
+
+    <div class="task">
+      <h3>4. Task: Navigate the website to find a specific page (ex: "Skills", "Mock Test").</h3>
+      <p><span class="label">Feedback Question:</span><br />What was your experience navigating the website to locate that page?</p>
+      <p><span class="label">Overall summarized response:</span><br />Navigation was generally described as intuitive and easy, with users able to locate pages through the menu or learning tab. However, at least one participant encountered functional issues, where pages would not open and only PDFs were accessible.</p>
+    </div>
+
+    <div class="task">
+      <h3>5. Task: View or interpret basic student progress on the student dashboard.</h3>
+      <p><span class="label">Feedback Question:</span><br />How would you describe the dashboard's layout and the way the progress information was presented?</p>
+      <p><span class="label">Overall summarized response:</span><br />The student dashboard was generally praised for its clean, organized layout and ease of use, with users appreciating the high-level view of overall progress. However, several usability issues were identified, including limited visibility into completed exercises, inconsistent layouts across divisions, confusing default navigation behavior, incorrect practice test answers, and accessibility problems where some users were unable to access the dashboard or encountered blank pages.</p>
+    </div>
+
+    <div class="task">
+      <h3>6. Task: Practice one of subtopic study material.</h3>
+      <p><span class="label">Feedback Question:</span><br />Overall, how was your experience using the practice tests?</p>
+      <p><strong>Average rating: 3.75/5</strong></p>
+      <figure class="fig-narrow">
+        <img src="../assets/ai-code-academy/rating.png" alt="3.75 out of 5 star rating" />
+      </figure>
+      <figure class="fig-narrow">
+        <img src="../assets/ai-code-academy/usability-summary.png" alt="Bar chart of practice test ratings: 1 (25%), 4 (25%), 5 (50%)" />
+      </figure>
+    </div>
+
+    <h2>End Result</h2>
+    <p>
+      The Capstone team and I presented our product in front of three professional
+      judges during the Final Capstone presentation. The judges asked a lot of
+      insightful questions and were satisfied with the outcome of the product. As a
+      result, the team placed in third place among 40+ Capstone projects.
+    </p>
+    <div class="fig-row">
+      <figure>
+        <img src="../assets/ai-code-academy/capstone1.png" alt="Capstone presentation photo 1" />
+      </figure>
+      <figure>
+        <img src="../assets/ai-code-academy/capstone2.png" alt="Capstone presentation photo 2" />
+      </figure>
+    </div>
+
+    <div class="fig-pair">
+      <figure>
+        <img src="../assets/ai-code-academy/capstone3.jpg" alt="Capstone presentation photo 3" />
+      </figure>
+      <figure>
+        <img src="../assets/ai-code-academy/certificate.png" alt="Certificate of Achievement" />
+      </figure>
+    </div>
+
+    <h2>Reflection</h2>
+    <p>
+      Being the Lead UX/UI Designer for this project, I was mainly responsible for
+      converting the issue of disjointed learning experiences that are not
+      adaptive, into a clear and intuitive interface. The problems identified in the
+      problem statement showed that there was a lack of transparency regarding how
+      the students perceived their progress and how they detected the conceptual
+      gaps in their preparation for ACSL. Going through this process, my design was
+      mainly influenced by the very fact that the experience was to be created that
+      would highlight the major factors of clarity, feedback, and visibility of
+      learning outcomes.
+    </p>
+    <p>
+      I have designed the interface showing the potential of adaptive learning
+      through straightforward navigation, a good visual hierarchy, and significant
+      indicators of progress.
+    </p>
+    <p>
+      Since this a project designed and built from scratch, I wasn't sure what the
+      sponsors wanted. What I would have done differently is clarify what they
+      really wanted in the beginning, so that I could have conducted interviews in
+      the beginning and informed my sponsors of what UI/UX Design is since they
+      somewhat had an idea of what responsibilities a designer does.
+    </p>
+    <p>
+      Moving forward, the next cohort of the Spring 2026 Capstone team will take
+      over our work and continue refining the UI/UX Design and developing the
+      interface. If possible, due to NDA guidelines, I will request to see progress
+      based on the continuation of the project. Overall, this experience enhanced
+      my collaborative design skills, enabling me to translate feedback from
+      multiple stakeholders into clearer and more effective solutions.
+    </p>
+
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--color-border); display:flex; gap:1rem;">
+      <a href="study-bunnies.html" class="btn btn-outline">Next Project</a>
+      <a href="../index.html" class="btn btn-primary">Back Home</a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Andres Tovio. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
